@@ -1,2 +1,2 @@
 # Contour-Integration
-Analyzing the performance of various CNN and ViT models on the paradigm from Field et. al (1993).
+Analyzing CNN and Vision Transformer performance on the contour integration paradigm of Field, Hayes, and Hess (1993).
