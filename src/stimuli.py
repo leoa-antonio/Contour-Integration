@@ -1,5 +1,6 @@
 import numpy as np
 from matplotlib.pyplot import subplots
+from pathlib import Path
 
 # Grid Utility Functions
 def get_grid_cell(position, image_size=512, grid_size=16):
@@ -346,13 +347,19 @@ def generate_stimulus(rng, beta, step_length, contour_present=True, n_contour_el
 
 # Plot Example 
 def plot_example_stimuli(positive, negative, figsize=(10, 10)):
+    limit = max(np.max(np.abs(positive)),np.max(np.abs(negative)))
+
     fig, ax = subplots(ncols=2, nrows=1, figsize=(10, 10))
-    ax[0].imshow(positive, cmap='gray')
+    ax[0].imshow(positive, cmap='gray', vmin=-limit, vmax=limit)
     ax[0].axis('off')
     ax[0].set_title('Stimulus with Contour')
 
-    ax[1].imshow(negative, cmap='gray')
+    ax[1].imshow(negative, cmap='gray', vmin=-limit, vmax=limit)
     ax[1].axis('off')
     ax[1].set_title('Stimulus without Contour')
+
+    output_dir = Path("/Users/leoa.antonio/LongTerm_Plan/Fall2026/contour-integration/figures")
+    file_path = output_dir / "example_stimulus.png"
+    fig.savefig(file_path, dpi=300, bbox_inches='tight')
 
 
