@@ -27,7 +27,6 @@ class ContourCNN(nn.Module):
 
         return x
     
-
 if __name__ == "__main__":
     model = ContourCNN()
 
