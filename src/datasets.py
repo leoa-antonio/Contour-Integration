@@ -12,8 +12,8 @@ class ContourIntegrationDataset(Dataset):
     a seed and a label.
     '''
 
-    def __init__(self, n_samples, beta, step_length, seed=0):
-        self.n_samples = n_samples
+    def __init__(self, n_images, beta, step_length, seed=0):
+        self.n_images = n_images
         self.beta = beta
         self.step_length = step_length
         self.seed = seed
