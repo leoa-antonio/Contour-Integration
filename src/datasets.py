@@ -19,7 +19,7 @@ class ContourIntegrationDataset(Dataset):
         self.seed = seed
 
     def __len__(self):
-        return self.n_samples
+        return self.n_images
 
     def __getitem__(self, idx):
         label = idx % 2
@@ -36,6 +36,6 @@ class ContourIntegrationDataset(Dataset):
         stimulus = torch.from_numpy(stimulus).float()
         stimulus = torch.unsqueeze(stimulus, 0)
 
-        label = torch.tensor(label, dtype=torch.long)
+        label = torch.tensor(label, dtype=torch.float32)
 
         return stimulus, label
